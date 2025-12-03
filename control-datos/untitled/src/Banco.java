@@ -23,7 +23,7 @@ public class Banco {
             try {
                 opcionEscogida = print.nextInt();
             } catch (InputMismatchException e) {
-                System.out.println("Indtroduce valores correctos, ha de ser un número del 1 al 3");
+                System.out.println("Indtroduce valores correctos, ha de ser un número del 1 al 4");
             }
 
             switch (opcionEscogida) {
@@ -59,6 +59,8 @@ public class Banco {
 
                             if (dineroSacar > dineroActual) {
                                 throw new Exception("Error. Estás intentando sacar más dinero del que tienes.");
+                            } else if (dineroSacar < 0) {
+                                throw new Exception("Error, no puedes sacar dinero menor a 0");
                             } else {
                                 dineroActual = dineroActual - dineroSacar;
                             }
@@ -74,6 +76,9 @@ public class Banco {
                     break;
                 case 4:
                     programa = false;
+                    break;
+                default:
+                    System.out.println("Error, introduce un número del 1 - 4");
                     break;
             }
 
